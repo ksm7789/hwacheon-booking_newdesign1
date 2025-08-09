@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>화천초등학교 특별실 예약</title>
+  <meta name="theme-color" content="#5CABFF" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no, address=no, email=no" />
+  <style>
+    :root { --brand:#5CABFF; --accent:#FFCDE1; --text:#334155; --radius:18px; }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Noto Sans KR',sans-serif; color:var(--text);
+      min-height:100dvh; background:#f7faff;
+      display:flex; justify-content:center; align-items:center; -webkit-tap-highlight-color:transparent;
+      padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    }
+    .app{
+      width:100%; max-width:420px; background:rgba(255,255,255,.85); border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(17,24,39,.08); backdrop-filter:blur(10px) saturate(120%);
+      display:flex; flex-direction:column; justify-content:space-between; height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    }
+    .frame{ border-radius:16px; display:flex; align-items:center; justify-content:center; padding:8px; flex-direction:column; }
+    .frame--title{
+      flex:1; 
+      background:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') no-repeat center/cover;
+      position:relative;
+      text-align:center; 
+      border-radius:var(--radius) var(--radius) 0 0;
+    }
+    .frame--title::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,0.6);
+      border-radius:var(--radius) var(--radius) 0 0;
+    }
+    .title-main, .title-sub{
+      position:relative;
+      z-index:1;
+    }
+    .title-main{ margin:0; font-weight:800; font-size:clamp(18px,4.6vw,22px); letter-spacing:.2px; color:#1f2937; }
+    .title-sub{ margin:4px 0 0 0; font-weight:500; font-size:clamp(14px,3.5vw,18px); letter-spacing:.2px; color:#374151; }
+
+    .frame--actions{ flex:1; background:rgba(255,255,255,0.85); display:flex; flex-direction:column; gap:20px; padding:12px; justify-content:center; }
+    .btn{ width:100%; padding:14px; border:none; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; transition:transform .08s ease, box-shadow .18s ease, filter .18s ease; }
+    .btn.primary{ background:linear-gradient(135deg,var(--brand) 0%,#BFE0FF 100%); color:#0b1220; box-shadow:0 4px 10px rgba(92,171,255,.25); }
+    .btn.secondary{ background:linear-gradient(135deg,var(--accent) 0%,#FFE6F0 100%); color:#374151; box-shadow:0 4px 10px rgba(255,205,225,.25); }
+    .btn:hover{ filter:brightness(1.05) }
+    .btn:active{ transform:translateY(1px) scale(.995) }
+    .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(92,171,255,.35) }
+
+    .frame--brand{ flex:1; background:rgba(247,250,255,0.7); text-align:center; color:#9ca3af; font-size:12px; letter-spacing:.4px; border-radius:0 0 var(--radius) var(--radius); }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="frame frame--title">
+      <h1 class="title-main">화천초등학교</h1>
+      <h2 class="title-sub">특별실 예약시스템</h2>
+    </section>
+
+    <section class="frame frame--actions" aria-label="예약하기">
+      <button class="btn primary" onclick="openSaengGakNaNoomTeo()">✨ 생각나눔터 예약하기</button>
+      <button class="btn secondary" onclick="openComputerRoom()">💻 컴퓨터실 예약하기</button>
+    </section>
+
+    <section class="frame frame--brand">HWACHEON ELEMENTARY SCHOOL</section>
+  </main>
+
+  <script>
+    function openSaengGakNaNoomTeo(){ window.open('https://outlook.office.com/book/Bookings@gwhw.gwe.es.kr/s/55aQYJW11kCSzNWPrsreBA2?ismsaljsauthenabled','_blank'); }
+    function openComputerRoom(){ window.open('https://outlook.office.com/book/Bookings@gwhw.gwe.es.kr/s/awgJB-JR_0SYDJIX3kr6sw2?ismsaljsauthenabled','_blank'); }
+  </script>
+</body>
+</html>
